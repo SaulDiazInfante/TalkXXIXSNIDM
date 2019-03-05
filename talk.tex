@@ -6,8 +6,6 @@
 \usepackage{pgfpages}
 \usepackage{qrcode}
 \usepackage[british]{babel}
-
-%% Glossy pretty look for the presentation and transparency (w/o overlays and animations) versions!
 \mode<beamer|trans>{
 \useoutertheme[glossy]{wuerzburg}
 \useinnertheme[shadow,outline]{chamfered}
@@ -16,8 +14,6 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{frametitle continuation}[from second][(cont'd)]
 \usefonttheme[stillsansseriftext,stillsansserifsmall]{serif}
-
-%% Save up on ink for the 4-up handouts
 \mode<handout>{
 \useoutertheme{wuerzburg}
 \useinnertheme[outline]{chamfered}
@@ -32,11 +28,13 @@
 }
 
 \mode<presentation>{\AtBeginSection[]{%
-\begin{frame}
-\frametitle{Contents}
-\tableofcontents[currentsection]
-\end{frame}}}
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}}
+}
 \usepackage[T1,safe]{tipa}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage{microtype}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -49,13 +47,21 @@
 \usepackage[skaknew]{chessboard,skak}
 \usepackage{multicol,booktabs}
 \usepackage{listings}
-\lstset{upquote,keepspaces=true,columns=spaceflexible,
-basicstyle=\ttfamily\scriptsize,%
-breaklines=true,breakindent=0pt,xleftmargin=0pt, xrightmargin=6pt,%
-language=[LaTeX]TeX, texcsstyle=*\bfseries\color{Maroon}, commentstyle=\sffamily\itshape\smaller\color{SeaGreen4},
-emphstyle=\bfseries\color{RoyalBlue3},escapechar={:},
-emphstyle={[2]{\bfseries\color{Sienna2}}},
-postbreak=\mbox{{\smaller\color{gray}$\hookrightarrow$}}
+\lstset{%
+    upquote,
+    keepspaces=true,
+    columns=spaceflexible,
+    basicstyle=\ttfamily\scriptsize,%
+    breaklines=true,
+    breakindent=0pt,
+    xleftmargin=0pt,
+    xrightmargin=6pt,%
+    language=[LaTeX]TeX,
+    texcsstyle=*\bfseries\color{Maroon},
+    commentstyle=\sffamily \itshape \smaller \color{SeaGreen4},
+    emphstyle=\bfseries \color{RoyalBlue3},escapechar={:},
+    emphstyle={[2]{\bfseries \color{Sienna2}}},
+    postbreak=\mbox{{\smaller \color{gray} $\hookrightarrow$}}
 }
 \mode<handout>{
    \lstset{
@@ -65,6 +71,10 @@ postbreak=\mbox{{\smaller\color{gray}$\hookrightarrow$}}
    emphstyle={[3]{\bfseries}},
    postbreak=\mbox{{\smaller$\hookrightarrow$}}
    }
+   \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
 }
 \makeatletter
 \lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
@@ -94,9 +104,17 @@ postbreak=\mbox{{\smaller\color{gray}$\hookrightarrow$}}
 \usepackage{marvosym}
 \usepackage{upgreek}
 \usepackage{adforn}
-% \ifpdf
+\usepackage{proba}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{bibunits}
+\usepackage{tcolorbox}
+\usepackage[%
+    texcoord,
+    grid, gridunit=mm,
+    gridcolor=red!60,
+    subgridcolor=gray!60]%
+ {eso-pic}
 \pdfmapfile{+webo.map}
-% \fi
 \newcommand{\wb}[1]{{\usefont{U}{webo}{xl}{n}#1}}
 \usepackage{bookmark}
 \setlength\fboxsep{0pt}
@@ -119,6 +137,11 @@ postbreak=\mbox{{\smaller\color{gray}$\hookrightarrow$}}
                 F. Pe\~n\'u\~nuri,
                 D. Gonz\'alez-S\'anchez}, In press%
         )\\%
+    Part of the thesis:
+    Optimal Control Applied in Epidemic Models,
+    \\
+    N. Palafox Lacarra
+    \\
     \hrulefill\
     \adforn{57}
     \thickspace\wb{m}
@@ -126,18 +149,26 @@ postbreak=\mbox{{\smaller\color{gray}$\hookrightarrow$}}
     \hrulefill
     }{}
 }
-    \date[\ccbyncsa]{\ccbyncsa\ (Yes, you can reuse this deck \Smiley)}
-\titlegraphic{\includegraphics[width=.3\textwidth]{TFZsuperellipse-crop}\\\tiny Illustration by Duane Bibby}
-
-\hypersetup{%
-pdfauthor={LianTze Lim}, %% the "author" field from above includes garbage code...
-pdfkeywords={latex,features,publicity,preview}
+    \date[\ccbyncsa]{\today \ (Yes, you can reuse this deck \Smiley)}
+    \titlegraphic{
+        \includegraphics[scale=.1]{logoSemanaxxixUnison.png}
+    }
+    \hypersetup{%
+        pdfauthor={Saul Diaz-Infante},
+        pdfkeywords={latex, features, publicity, preview}
 }
-
+\defaultbibliography{references}
+\defaultbibliographystyle{plainnat}
 \begin{document}
     \begin{frame}[plain]
         \maketitle
     \end{frame}
+    \section{Introduction}
+        \include{intro}
+    \section{Control policies in epidemics}
+        \include{control_policies}
+    \section{Existence and characterization of optimal policies}
+    \section{Numerical analysis}
 
     \begin{frame}
         \frametitle{Contents}
