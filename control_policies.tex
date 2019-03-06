@@ -1,25 +1,49 @@
-\begin{frame}{}
-    \setbeamercolor{itemize item}{fg=structure.fg!98}
-    \usebeamercolor[bg]{normal text}
+{
+    \definecolor{UniBlue}{RGB}{83,121,170}
+    \setbeamercolor{itemize item}{fg=black}
+    \setbeamercolor{structure}{fg=black}
+    \setbeamercolor{normal text}{fg=black, bg=black}
+\begin{frame}{Control policies}
     \begin{textblock*}{55mm}(2mm, 5mm)
         \begin{beamerboxesrounded}{Optimal control theory is a way.}
             \begin{itemize}
                 \item
-                    Uncontroled transision dynamics which generates a cost.
+                    We require a \textbf{model} to describe the spreading of an 
+                    uncontrolled disease, and whose transitions generate a 
+                    \textbf{cost or reward}.
                 \item
-                    Continuous control acction that modify changhes between
-                    states.
+                    Continuous \textbf{control action} that modify changes 
+                    between states.
+                \item
+                    A \textbf{functional} which describes \textbf{cost-reward}.
             \end{itemize}
         \end{beamerboxesrounded}
     \end{textblock*}
-
+%
+    \begin{textblock*}{65mm}(62mm, 5mm)
+        \begin{beamerboxesrounded}{Optimal control theory is a way.}
+            \begin{itemize}
+                \item
+                    A rule that prescribes which control
+                    operation to use at each time, is a \textbf{control policy}.
+                \item
+                    \textbf{closed-loop} or \textbf{feedback} control.
+                \item
+                    \textbf{open-loop} policy.
+            \end{itemize}
+            %
+            We consider control policies that affect the bounded rates at which 
+            population moves from one class (e.g., infected) to another (e.g., 
+            recovered).
+        \end{beamerboxesrounded}
+    \end{textblock*}
     %
     %
-    %
-    \begin{bibunit}[apalike]
-        \setbeamercolor{itemize item}{fg=structure.fg!98}
-        %\usebeamercolor[bg]{normal text}
-        \nocite{Wickwire1977}
-        \putbib
-    \end{bibunit}
+    \begin{textblock*}{65mm}(65mm, 65mm)
+        \begin{bibunit}[apalike]
+            \nocite{Wickwire1977}
+            \putbib
+        \end{bibunit}
+    \end{textblock*}
 \end{frame}
+}

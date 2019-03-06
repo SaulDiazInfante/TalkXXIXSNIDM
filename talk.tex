@@ -108,12 +108,12 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{bibunits}
 \usepackage{tcolorbox}
-\usepackage[%
-    texcoord,
-    grid, gridunit=mm,
-    gridcolor=red!60,
-    subgridcolor=gray!60]%
- {eso-pic}
+%\usepackage[%
+%    texcoord,
+%    grid, gridunit=mm,
+%    gridcolor=red!60,
+%    subgridcolor=gray!60]%
+% {eso-pic}
 \pdfmapfile{+webo.map}
 \newcommand{\wb}[1]{{\usefont{U}{webo}{xl}{n}#1}}
 \usepackage{bookmark}
@@ -165,13 +165,12 @@
     \end{frame}
     \section{Introduction}
         \include{intro}
+        \begin{frame}
+            \frametitle{Contents}
+            \tableofcontents
+        \end{frame}
     \section{Control policies in epidemics}
         \include{control_policies}
     \section{Existence and characterization of optimal policies}
     \section{Numerical analysis}
-
-    \begin{frame}
-        \frametitle{Contents}
-        \tableofcontents
-    \end{frame}
 \end{document}
