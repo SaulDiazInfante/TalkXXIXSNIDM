@@ -50,15 +50,17 @@
                 {N}
                 -(
                 \only<5->{
-                    \textcolor{cyan}{u_1(t)}
+                    \textcolor{cyan}{u_1(t)+}
                 }
-                     + k_1 + \mu
+                      k_1 + \mu
+                      \only<4>{+\gamma_1}
                 )E,
             \\
             \dfrac{dQ}{dt} &=
                 \only<5->{
                     \textcolor{cyan}{u_1(t)}
                 }
+                 \only<4>{\gamma_1}
                  E - (k_2 + \mu) Q,
             \\
             \dfrac{dI}{dt} &=
@@ -67,12 +69,15 @@
                 \only<5->{
                     \textcolor{cyan}{u_2(t)}
                 }
-                + d_1  + \sigma_1 + \mu) I,
+                \only<4>{\gamma_2}
+                + d_1  + \sigma_1 
+                + \mu) I,
             \\
             \dfrac{dJ}{dt} &=
                 \only<5->{
                     \textcolor{cyan}{u_2(t)}
                 }
+                \only<4>{\gamma_2}  
                   I 
                 + k_2 Q
                 - (d_2 + \sigma_2 + \mu) J,
