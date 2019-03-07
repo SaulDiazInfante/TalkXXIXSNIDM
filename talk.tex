@@ -1,158 +1,90 @@
-\RequirePackage{silence}
-\WarningFilter{hyperref}{Token not allowed}
-\WarningFilter{microtype}{tracking amount}
-\WarningFilter{chessfss}{\comment already}
-\documentclass[xcolor={x11names,svgnames,dvipsnames},trans]{beamer}
-\usepackage{pgfpages}
-\usepackage{qrcode}
-\usepackage[british]{babel}
-\mode<beamer|trans>{
-\useoutertheme[glossy]{wuerzburg}
-\useinnertheme[shadow,outline]{chamfered}
-\usecolortheme{shark}
-}
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{frametitle continuation}[from second][(cont'd)]
-\usefonttheme[stillsansseriftext,stillsansserifsmall]{serif}
-\mode<handout>{
-\useoutertheme{wuerzburg}
-\useinnertheme[outline]{chamfered}
-%\pgfpagesuselayout{4 on 1}[a4paper, landscape, border shrink=10mm]
-\pgfpagesuselayout{2 on 1}[a4paper, border shrink=10mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfstroke}
-\pgfpageslogicalpageoptions{2}{border code=\pgfstroke}
-%\pgfpageslogicalpageoptions{3}{border code=\pgfstroke}
-%\pgfpageslogicalpageoptions{4}{border code=\pgfstroke}
-\setbeamercolor{structure}{fg=black}
-\setbeamercolor{alerted text}{fg=black}
-}
-
-\mode<presentation>{\AtBeginSection[]{%
-    \begin{frame}
-        \frametitle{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}}
-}
-\usepackage[T1,safe]{tipa}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage{microtype}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{libertine}
-\usepackage[scaled=.77]{beramono}
-\SetTracking{encoding=*}{-39}
-\usepackage{relsize,tabularx}
-\usepackage{hologo,textcomp}
-\usepackage{comment}
-\usepackage[skaknew]{chessboard,skak}
-\usepackage{multicol,booktabs}
-\usepackage{listings}
-\lstset{%
-    upquote,
-    keepspaces=true,
-    columns=spaceflexible,
-    basicstyle=\ttfamily\scriptsize,%
-    breaklines=true,
-    breakindent=0pt,
-    xleftmargin=0pt,
-    xrightmargin=6pt,%
-    language=[LaTeX]TeX,
-    texcsstyle=*\bfseries\color{Maroon},
-    commentstyle=\sffamily \itshape \smaller \color{SeaGreen4},
-    emphstyle=\bfseries \color{RoyalBlue3},escapechar={:},
-    emphstyle={[2]{\bfseries \color{Sienna2}}},
-    postbreak=\mbox{{\smaller \color{gray} $\hookrightarrow$}}
-}
-\mode<handout>{
-   \lstset{
-   texcsstyle=*\bfseries, commentstyle=\sffamily\itshape\smaller,
-   emphstyle=\bfseries,escapechar={:},
-   emphstyle={[2]{\bfseries}},
-   emphstyle={[3]{\bfseries}},
-   postbreak=\mbox{{\smaller$\hookrightarrow$}}
-   }
-   \begin{frame}
-        \frametitle{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}
-}
-\makeatletter
-\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
-\@empty\z@\@empty
-\makeatother
+\documentclass[10pt]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\includeonlyframes{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					Preambulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage{wrapfig}
+\usepackage{siunitx}
+\usepackage{times}
 \usepackage{tikz}
-\usepackage{pgfgantt}
-\usetikzlibrary{shapes,arrows,positioning,matrix,chains,fit}
-\usetikzlibrary{backgrounds}
-\usepackage{multicol,multirow}
-\usepackage[version=3]{mhchem}
-\usepackage{chemfig}
-\usepackage{expex,qtree}
-\usepackage{texshade}
-\usepackage[detect-all]{siunitx}
-\usepackage[siunitx]{circuitikz}
-\usepackage{smartdiagram}
-\usepackage{bytefield}
-% \usepackage{pstricks,pst-barcode}
-% \usepackage{auto-pst-pdf}
+\usepackage{verbatim}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{url}
+\usepackage{empheq}
+\usepackage{fancybox}
+\usepackage{esint}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{tikz}%
+\usepackage{circuitikz}
+\usepackage{csvsimple}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.12}
-\usepackage{cwpuzzle}
-\usepackage{gchords,guitar}
-\usepackage{spreadtab}
-\usepackage{ccicons}
-\usepackage{marvosym}
-\usepackage{upgreek}
-\usepackage{adforn}
+\usepackage{multimedia}
+\usepackage{media9}
 \usepackage{proba}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{bibunits}
 \usepackage{tcolorbox}
-%\usepackage[%
-%    texcoord,
-%    grid, gridunit=mm,
-%    gridcolor=red!60,
-%    subgridcolor=gray!60]%
+% \usepackage[
+%texcoord,
+%grid, gridunit=mm,gridcolor=red!60,subgridcolor=green!60]%
 % {eso-pic}
-\pdfmapfile{+webo.map}
-\newcommand{\wb}[1]{{\usefont{U}{webo}{xl}{n}#1}}
-\usepackage{bookmark}
-\setlength\fboxsep{0pt}
-\author[Sa\'ul D\'iaz Infante Velasco]{
-    \texorpdfstring{
-        Sa\'ul D\'iaz Infante Velasco
-        (\url{sauldiazinfante@gmail.com})
-        \\
-        \url{https://github.com/SaulDiazInfante/TalkXXIXSNIDM.git}}
-        {Sa\'ul D\'iaz Infante Velasco}
-    }
+\usepackage[makeroom]{cancel}
+\usepackage{epstopdf}
+\newcommand{\s}{\subseteq}
+\newcommand{\e}{\varepsilon}
+%
+\epstopdfsetup{outdir=./}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \title{
     EXISTENCE, CHARACTERIZATION AND SIMULATION OF OPTIMAL
-    POLICIES IN A FAMILY OF EPIDEMIC MODELS}
-\subtitle{
-    \texorpdfstring{
-        (%
-            \textsc{
-                S. D\'iaz-Infante,
-                F. Pe\~n\'u\~nuri,
-                D. Gonz\'alez-S\'anchez}, In press%
-        )\\%
-    Part of the thesis:
-    Optimal Control Applied in Epidemic Models,
+    POLICIES IN A FAMILY OF EPIDEMIC MODELS
     \\
-    N. Palafox Lacarra
-    \\
-    \hrulefill\
-    \adforn{57}
-    \thickspace\wb{m}
-    \thickspace\adforn{29}\
-    \hrulefill
-    }{}
+        \small{
+            (%
+                \textsc{%
+                    S. D\'iaz-Infante, %
+                    F. Pe\~n\'u\~nuri, %
+                    D. Gonz\'alez-S\'anchez}, In press%
+            )\\%
+        Part of the thesis:
+        Optimal Control Applied in Epidemic Models,
+        \\
+        N. Palafox Lacarra
+        \\
+        }{}
 }
-    \date[\ccbyncsa]{\today \ (Yes, you can reuse this deck \Smiley)}
-    \titlegraphic{
-        \includegraphics[scale=.1]{logoSemanaxxixUnison.png}
+\subtitle{XXIX SNIDM}
+\date{\today}
+\author{Sa\'ul D\'iaz Infante Velasco}
+\institute{CONACYT-Universidad de Sonora}
+\titlegraphic{\vspace{-2em}\hfill\includegraphics[scale=.05]{logoSemanaxxixUnison.png}}
+\metroset{block=fill}
+\input{setup}
+\author[Sa\'ul D\'iaz Infante Velasco]{
+        Sa\'ul D\'iaz Infante Velasco
+%        (\url{sauldiazinfante@gmail.com})
+        %\\
+%        \url{https://github.com/SaulDiazInfante/TalkXXIXSNIDM.git}}
     }
+    \date[\ccbyncsa]{\today }
     \hypersetup{%
         pdfauthor={Saul Diaz-Infante},
         pdfkeywords={latex, features, publicity, preview}
@@ -171,6 +103,9 @@
         \end{frame}
     \section{Control policies in epidemics}
         \include{control_policies}
+        \include{example_sars}
     \section{Existence and characterization of optimal policies}
+        \include{existence_char_op}
+        \include{pontryagin}
     \section{Numerical analysis}
 \end{document}
