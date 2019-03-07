@@ -1,0 +1,94 @@
+\begin{frame}{Existence and characterization of optimal policies}
+    \only<1>{
+    \begin{textblock*}{100mm}(15mm, 12mm)
+        The non controlled epidemic model described above is of the
+        form 
+        \begin{eqnarray*}
+            \dot{X} & = & AX +  
+            \begin{bmatrix}
+                X^\top B^{(1)}\\
+                \vdots \\
+                X^\top B^{(n)}
+            \end{bmatrix}X + k  \\
+            & = & \left(A + [X^\top \cdots X ^ \top]
+            \begin{bmatrix}
+                    B^{(1)}\\
+                    \vdots \\
+                    B^{(n)}
+            \end{bmatrix} \right) X + k
+        \end{eqnarray*}
+        where the matrix $A$ represents the linear part of the system, each 
+        matrix $B^{(j)}$, $j=1,\ldots,n$, 
+        gives the {\it interaction} part as a quadratic 
+        form, and $k$ is a constant vector.
+        
+         Thus the $j$-th row of the above system takes the form 
+            \[ \dot{X}_j = r_j(A)X + X^\top B^{(j)}X + k_j.\]
+    \end{textblock*}
+    }
+\end{frame}
+%
+%
+%
+\begin{frame}{A family of control systems}
+    Let $\mathbf{X} \subset \mathbb{R} ^ n$ and 
+    $\mathbf{U} \subset \R^m$ be nonempty 
+    and compact sets. The sets $\mathbf{X}$ and $\mathbf{U}$ are 
+    respectively called the {\it state space} and the {\it control space}. The 
+    vectors in $X$ have non-negative entries, in particular we assume that 
+    $0\in X$. The control set $\mathbf{U}$ is convex. We consider the following 
+    control system, for $j=1,\ldots,n$, 
+    \begin{equation*}
+        \dot{X}_j  =  [r_j(A) + u^\top C^{(j)}]X +
+        X^\top    \begin{bmatrix}
+        r_1(B^{(j)}) + u^\top D^{(j1)}\\
+        \vdots \\
+        r_n(B^{(j)}) + u^\top D^{(jn)}
+      \end{bmatrix}  X + k_j
+    \end{equation*}
+    where $A\in\R^{n\times n}$,
+    $B^{(j)}\in\R^{n\times n}$, 
+    $C^{(j)}\in\R^{m\times n}$,
+    and $ D^{(jl)}\in\R^{m\times n}$ for $l=1,\ldots,n$.
+\end{frame}
+%
+%
+%
+%
+\begin{frame}{}
+    \begin{equation*}
+        \dot{X}_j  =  [r_j(A) + u^\top C^{(j)}]X +
+        X^\top    \begin{bmatrix}
+        r_1(B^{(j)}) + u^\top D^{(j1)}\\
+        \vdots \\
+        r_n(B^{(j)}) + u^\top D^{(jn)}
+      \end{bmatrix}  X + k_j, \quad j=1,\dots, n.
+    \end{equation*}
+%
+    \begin{theorem}
+        For each measurable function 
+        $u:[0,T]\to \mathbf{U}$ and each initial condition $x_0\in X$,
+        there exists a unique absolutely continuous function 
+        $X_u:[0,T]\to \R^n$ that satisfies the the 
+        system  almost everywhere. 
+    \end{theorem}
+\end{frame}
+%
+%
+%
+\begin{frame}{Existence of optimal policies.}
+    Consider the  {\it cost functional} of an admissible control $u$, given the 
+    initial state $x_0$, 
+    \begin{equation}\label{CostFunctional} 
+        V(u,x_0) := \int_0 ^ T g(X(t), u(t)) \ ,dt,
+    \end{equation}
+    %
+    where $g: \mathbf{X} \times \mathbf{U} \to \R$ is continuous. 
+    The {\it optimal control problem} (OCP) consists of finding an admissible 
+    control $u^\ast$ such that
+    \[ V(u^\ast,x_0)=\inf\{ V(u,x_0)\mid u\in \mathbb{U}_B \}.\]
+    If there exists such a control $u^\ast$, then it is called an 
+    {\it optimal policy} or {\it optimal control}. 
+    The pair $(u^\ast,X^\ast)$, where $X^\ast$ is given by 
+    the above Theorem, is an {\it optimal pair}.
+\end{frame}

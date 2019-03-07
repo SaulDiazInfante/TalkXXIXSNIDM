@@ -1,0 +1,146 @@
+\begin{frame}{SARS: isolation and quarantine}
+
+    \begin{textblock*}{65mm}(17mm, 35mm)
+     \begin{equation*}\label{eqn:sars_model}
+        \begin{aligned}
+            \dfrac{dS}{dt} &=
+                \Lambda 
+                -\dfrac{
+                    S
+                    \left(
+                        \beta I 
+                        + \mathcal{E}_E  \beta E
+                        + \mathcal{E}_Q  \beta Q
+                        + \mathcal{E}_J  \beta J
+                    \right)
+                }{N}
+                - \mu S,
+            \\
+            \dfrac{dE}{dt} &=
+                p +
+                \dfrac{
+                    \beta S
+                    \left(
+                        \beta I 
+                            + \mathcal{E}_E \beta E
+                            + \mathcal{E}_Q \beta Q
+                            + \mathcal{E}_J \beta J
+                    \right)
+                }
+                {N}
+                -(
+                    \textcolor{cyan}{u_1(t)}
+                     + k_1 + \mu
+                )E,
+            \\
+            \dfrac{dQ}{dt} &=
+                 \textcolor{cyan}{u_1(t)}
+                 E - (k_2 + \mu) Q,
+            \\
+            \dfrac{dI}{dt} &=
+                k_1 E 
+                -(
+                    \textcolor{cyan}{u_2(t)}
+                + d_1  + \sigma_1 + \mu) I,
+            \\
+            \dfrac{dJ}{dt} &=
+                    \textcolor{cyan}{u_2(t)}
+                  I 
+                + k_2 Q
+                - (d_2 + \sigma_2 + \mu) J,
+            \\
+            \dfrac{dR}{dt} &=
+                \sigma_1 I
+                +\sigma_2 J
+                - \mu R.
+        \end{aligned}
+     \end{equation*}
+    \end{textblock*}
+        
+    \begin{textblock*}{55mm}(15mm, 12mm)
+            \begin{equation*}\label{eqn:sars_cost}
+              \min_{u \in U}\int_{0}^{t_f}
+                  \left[
+                    B_1 E(t)
+                    + B_2 Q(t)
+                    + B_3 I(t)
+                    + B_4 J(t)
+                    + \frac{C_1}{2} u_1^2 (t)
+                    + \frac{C_2}{2} u_2^2 (t)
+                  \right]
+                  dt.
+            \end{equation*}
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}{}
+    \begin{table}
+        \begin{center}
+            \begin{tabular}{@{}rlrl@{}}
+                \toprule
+                \multicolumn{4}{c}{\bf{Parameters values}}
+                \\
+                \midrule
+                $\beta$
+                & \num{0.2}
+                & $d_1$, $d_2$
+                & \num{0.0079}, \num{0.0337}
+                \\
+                $\varepsilon_E$, 
+                $\varepsilon_Q$,
+                $\varepsilon_J$
+                & \num{0.3}, \num{0.0}, \num{0.1}
+                &
+                $k_1$, $k_2$ 
+                & 
+                \num{0.1},
+                \num{0.125}
+                \\
+                $\mu$
+                & \num{0.000034}
+                \\
+                $\Lambda$
+                & $\mu N$
+                \\
+                $p$
+                & \num{0.0}
+                \\
+                $\sigma_1$, $\sigma_2$
+                & \num{0.0337}, \num{0.0386}
+                && \multicolumn{1}{c}{\bf{Initial conditions}}
+                \\
+                \cmidrule{4-4}
+                &&& $S(0)=\num{12e6}$, $E(0)=1565$,
+                \\
+                $t_f$
+                & $\SI{1.0}{year}$
+                && $Q(0)=292$, $I(0)=\num{695}$,
+                \\
+                Step size
+                & $dt=\SI{1.0}{day}$
+                && $J(0)=\num{326}$, $R(0)=\num{20}$
+                \\
+                $u_i$ bounds
+                & \num{.05}, \num{0.5}
+                \\
+                $B_1$, $B_2$, $B_3$, $B_4$
+                & \num{1.0}, \num{1.0}, \num{1.0}, \num{1.0}
+                \\
+                $C_1$, $C_2$
+                & \num{300}, \num{600}
+                \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{table}
+\end{frame}
+
+\begin{frame}{}
+    \includegraphics[width=\linewidth]{figure_1_sars-eps-converted-to.pdf}
+\end{frame}
+\begin{frame}{}
+\includegraphics[width=\linewidth]{figure_2_sars-eps-converted-to.pdf}
+\end{frame}
+\begin{frame}{}
+\includegraphics[width=\linewidth]{figure_3_sars-eps-converted-to.pdf}
+\end{frame}

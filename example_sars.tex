@@ -1,0 +1,125 @@
+\begin{frame}{SARS: isolation and quarantine}
+    \only<1-4>{
+    \begin{textblock*}{55mm}(2mm, 12mm)
+            If an disease lacks of a rapid diagnostic test, therapy or 
+        vaccine, then isolation and quarantine .
+%
+            Gumel et. al %\cite{Gumel2004}
+            model this strategies for (SARS).
+    \end{textblock*}
+    
+    \begin{textblock*}{120mm}(2mm, 62mm)
+        \only<1>{
+        \begin{bibunit}[apalike]
+            \nocite{Gumel2004}
+            \putbib
+        \end{bibunit}
+        }
+        \only<2>{
+        \begin{bibunit}[apalike]
+            \nocite{Yan2008}
+            \putbib
+        \end{bibunit}
+        }
+    \end{textblock*}
+    }
+%        
+    \only<2-4>{
+    \begin{textblock*}{55mm}(65mm, 12mm)
+            Based in the work of Gumel et. al., Yan and Zou report 
+            %\cite{Yan2008} 
+            a control epidemic model for SARS. They use 
+            quarantine and isolation as mitigation controls. 
+     \end{textblock*}
+    }
+%
+%
+    \only<4-6>{
+    \begin{textblock*}{65mm}(17mm, 35mm)
+     \begin{equation*}\label{eqn:sars_model}
+        \begin{aligned}
+            \dfrac{dS}{dt} &=
+                \Lambda 
+                -\dfrac{
+                    S
+                    \left(
+                        \beta I 
+                        + \mathcal{E}_E  \beta E
+                        + \mathcal{E}_Q  \beta Q
+                        + \mathcal{E}_J  \beta J
+                    \right)
+                }{N}
+                - \mu S,
+            \\
+            \dfrac{dE}{dt} &=
+                p +
+                \dfrac{
+                    \beta S
+                    \left(
+                        \beta I 
+                            + \mathcal{E}_E \beta E
+                            + \mathcal{E}_Q \beta Q
+                            + \mathcal{E}_J \beta J
+                    \right)
+                }
+                {N}
+                -(
+                \only<5->{
+                    \textcolor{cyan}{u_1(t)+}
+                }
+                      k_1 + \mu
+                      \only<4>{+\gamma_1}
+                )E,
+            \\
+            \dfrac{dQ}{dt} &=
+                \only<5->{
+                    \textcolor{cyan}{u_1(t)}
+                }
+                 \only<4>{\gamma_1}
+                 E - (k_2 + \mu) Q,
+            \\
+            \dfrac{dI}{dt} &=
+                k_1 E 
+                -(
+                \only<5->{
+                    \textcolor{cyan}{u_2(t)}
+                }
+                \only<4>{\gamma_2}
+                + d_1  + \sigma_1 
+                + \mu) I,
+            \\
+            \dfrac{dJ}{dt} &=
+                \only<5->{
+                    \textcolor{cyan}{u_2(t)}
+                }
+                \only<4>{\gamma_2}  
+                  I 
+                + k_2 Q
+                - (d_2 + \sigma_2 + \mu) J,
+            \\
+            \dfrac{dR}{dt} &=
+                \sigma_1 I
+                +\sigma_2 J
+                - \mu R.
+        \end{aligned}
+     \end{equation*}
+    \end{textblock*}
+    }
+    \only<5-6>{
+        \begin{textblock*}{55mm}(15mm, 12mm)
+            \begin{equation*}\label{eqn:sars_cost}
+              \min_{u \in U}\int_{0}^{t_f}
+                  \left[
+                    B_1 E(t)
+                    + B_2 Q(t)
+                    + B_3 I(t)
+                    + B_4 J(t)
+                    + \frac{C_1}{2} u_1^2 (t)
+                    + \frac{C_2}{2} u_2^2 (t)
+                  \right]
+                  dt.
+            \end{equation*}
+        \end{textblock*}
+    }
+    
+\end{frame}

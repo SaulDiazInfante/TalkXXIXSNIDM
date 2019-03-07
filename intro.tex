@@ -73,6 +73,7 @@
 \setbeamertemplate{background canvas}{%
 \hskip-2em\includegraphics[width=1.2\paperwidth]{SuzanneLenhart}}
 \begin{frame}{}
+    \only<2->{
     \begin{textblock*}{55mm}(2mm, 5mm)
         \begin{beamerboxesrounded}{Optimal control theory is a way.}
                 In the fifties, \textbf{Pontryagin} and
@@ -87,7 +88,9 @@
             respectively.
         \end{beamerboxesrounded}
     \end{textblock*}
+    }
 %
+    \only<3->{
     \begin{textblock*}{120mm}(5mm, 70mm)
         \begin{beamerboxesrounded}{}
             \begin{bibunit}[apalike]
@@ -96,5 +99,6 @@
             \end{bibunit}
         \end{beamerboxesrounded}
     \end{textblock*}
+    }
 \end{frame}
 }

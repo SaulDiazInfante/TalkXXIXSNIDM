@@ -1,0 +1,20 @@
+\begin{frame}{Indirect Methods}
+	Since we can transform the problem of optimal control into the two-point 
+	boundary ODE problem:
+	\begin{equation*}
+		\label{eqn:extended_tpvbp}
+		\begin{aligned}
+			\dot{x}(t) &= 
+				f(x(t), u(t)), \qquad x(0)=x_0 
+			\\
+			\dot{\lambda}(t) &=
+				-\mathcal{H}_x(x(t),u(t),\lambda(t))^\top, \quad 
+				\lambda(T)=0
+		\end{aligned}
+	\end{equation*}
+	methods designed to solve boundary value problem are applicable.
+\end{frame}
+%
+\begin{frame}{The most popular}
+    \includegraphics[width=1\linewidth]{fbs_algorithm}
+\end{frame}
