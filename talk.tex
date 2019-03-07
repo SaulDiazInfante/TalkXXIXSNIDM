@@ -42,12 +42,15 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{bibunits}
 \usepackage{tcolorbox}
+\usepackage{booktabs}
 % \usepackage[
 %texcoord,
 %grid, gridunit=mm,gridcolor=red!60,subgridcolor=green!60]%
 % {eso-pic}
 \usepackage[makeroom]{cancel}
 \usepackage{epstopdf}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \newcommand{\s}{\subseteq}
 \newcommand{\e}{\varepsilon}
 %
@@ -84,7 +87,7 @@
         %\\
 %        \url{https://github.com/SaulDiazInfante/TalkXXIXSNIDM.git}}
     }
-    \date[\ccbyncsa]{\today }
+    \date[\ccbyncsa]{March 7, 2019 }
     \hypersetup{%
         pdfauthor={Saul Diaz-Infante},
         pdfkeywords={latex, features, publicity, preview}
@@ -108,4 +111,18 @@
         \include{existence_char_op}
         \include{pontryagin}
     \section{Numerical analysis}
+    	\include{intro_numerics}
+        \include{example_numerics}
+    \section{Concluding remarks}
+        \include{conclude_remarks}
+    \begin{frame}{References}
+    Complete list of references:
+    \href{https://www.overleaf.com/read/vnvgjdqkmznc%
+    }{https://www.overleaf.com/read/vnvgjdqkmznc}
+    
+    Python code:
+    \nocite{python_repo}
+    \bibliographystyle{amsalpha}
+    \bibliography{references.bib}
+\end{frame}
 \end{document}

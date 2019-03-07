@@ -3,34 +3,42 @@
     \begin{textblock*}{55mm}(2mm, 10mm)
         \begin{beamerboxesrounded}{Optimal control theory is a way.}
             \begin{itemize}
-                \item
+                \item \only<2->{
                     We require a \textbf{model} to describe the spreading of an 
                     uncontrolled disease, and whose transitions generate a 
                     \textbf{cost or reward}.
-                \item
+                    }
+                \item \only<3->{
                     Continuous \textbf{control action} that modify changes 
                     between states.
-                \item
+                    }
+                \item \only<4->{
                     A \textbf{functional} which describes \textbf{cost-reward}.
+                    }
             \end{itemize}
         \end{beamerboxesrounded}
     \end{textblock*}
 %
     \begin{textblock*}{65mm}(62mm, 10mm)
-        \begin{beamerboxesrounded}{Optimal control theory is a way.}
+        \begin{beamerboxesrounded}{Control Policy}
             \begin{itemize}
-                \item
+                \item \only<5->{
                     A rule that prescribes which control
                     operation to use at each time, is a \textbf{control policy}.
-                \item
+                }
+                \item \only<6->{
                     \textbf{closed-loop} or \textbf{feedback} control.
-                \item
+                }
+                \item \only<7->{
                     \textbf{open-loop} policy.
+                }
             \end{itemize}
             %
-            We consider control policies that affect the bounded rates at which 
-            population moves from one class (e.g., infected) to another (e.g., 
-            recovered).
+            \only<8>{
+                We consider control policies that affect the bounded rates at which 
+                population moves from one class (e.g., infected) to another (e.g., 
+                recovered).
+            }
         \end{beamerboxesrounded}
     \end{textblock*}
     %
