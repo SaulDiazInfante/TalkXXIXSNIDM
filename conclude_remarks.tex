@@ -1,0 +1,31 @@
+\begin{frame}{Concluding remarks}
+    
+    {\bf Uniqueness of optimal policy}.
+    The proof of the uniqueness of the state path $X_u$, given a policy $u$, is
+    fairly standard. However, the uniqueness of an 
+    {\it optimal policy} is not trivial and it can be established on some small 
+    enough interval.
+    
+    {\bf Numerical schemes.}
+    According with the forward-backward-sweep, the 
+    schemes needs a ODE solver one of its steps. However some times this solver 
+    generates spurious solutions as resulting of numeric instability. 
+    We see an opportunity to  apply nonstandard numerical schemes which are consistent with 
+    the underlying conservation laws.
+    
+    Direct methods
+\end{frame}
+\begin{frame}{}
+    
+    {\bf Maximum principle vs. Dynamic programming.} 
+    The same approach is followed in almost all the related literature on optimal
+    control of epidemics/diseases.
+    
+     As an alternative, the so-called Dynamic
+    programming approach can be used to analyze this kind of problems. With the
+    Maximum principle we need to solve a system of ordinary differential equations
+    (ODEs) whereas in Dynamic programming a partial differential equation (PDE)
+    arises. In addition, both approaches involve an optimization problem. 
+        
+    By following the DP approach, the optimal policies are obtained in {\it feedback} (or {\it Markov}) form, i.e., the control policy is a function of the state of the system. Thus DP is a natural approach to solve stochastic models.
+\end{frame}

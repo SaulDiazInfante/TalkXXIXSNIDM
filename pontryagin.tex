@@ -1,0 +1,175 @@
+\begin{frame}{Sufficient conditions for optimality}
+    Consider the Hamiltonian 
+    $
+        \mathcal{H}:\mathbf{X}\times\mathbf{U}\times\R^n\to \R
+    $, defined as 
+    \[
+        \mathcal{H}(x, u, \lambda):=
+             g(x,u) + \lambda ^ \top f(x,u),
+    \]
+        and
+        \[ 
+            \mathcal{H}^\ast(x,\lambda)  
+            := \inf_{u\in\mathbf{U}}\mathcal{H}(x,u,\lambda),
+        \]
+        where $g$ determines the cost functional 
+        and $f$ is given by the right-hand side of the control system.
+
+        The function $\lambda:[0,T]\to \R^n$ and the admissible pair 
+        $(u,X)$ satisfy the necessary conditions of the 
+        {\it Maximum Principle} (MP) if they solves
+        {\it adjoint equation}
+        \begin{equation*}
+             \dot{\lambda}(t) = -\mathcal{H}_x(X(t),u(t),\lambda(t))^\top, 
+             \quad \lambda(T)=0,
+        \end{equation*}
+        and satisfy the {\it optimality condition}
+        \begin{equation*}\label{OptCond}
+            \mathcal{H}^\ast(X(t),\lambda(t)) =
+            \mathcal{H}(X(t),u(t),\lambda(t)).
+       \end{equation*}
+\end{frame}
+
+\begin{frame}{}
+    \begin{definition}\label{PiecewiseCont}
+        \rm The function $w$ from $[0,T]$ to some Euclidean space is {\it 
+        piecewise continuous} if
+        \begin{enumerate}[(i)]
+            \item $w$ is continuous on $[0,T]$ except at a finite number of 
+            points, and 
+            \item if $w$ is discontinuous at $t$, then  
+                \[\lim_{s\to t^-}w(s) \mbox{ and } \lim_{s\to t^+}w(s)\]
+                are finite. 
+        \end{enumerate}
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Pontryagin MP}
+    \begin{textblock*}{60mm}(1mm, 10mm)
+        \begin{beamerboxesrounded}{Optimality condition}
+            \begin{equation*}
+                \begin{aligned}
+                    \mathcal{H}(x,u,\lambda)
+                        &:= g(x,u) + \lambda^\top f(x,u),
+                    \\
+                    \mathcal{H}^\ast(x,\lambda)  
+                        &:= \inf_{u\in\mathbf{U}}\mathcal{H}(x,u,\lambda),
+                    \\
+                    \mathcal{H}^\ast(X(t),\lambda(t)) 
+                        &=
+                    \mathcal{H}(X(t),u(t),\lambda(t)).
+                    \\
+                \end{aligned}
+            \end{equation*}
+        \end{beamerboxesrounded}
+    \end{textblock*}
+    
+    \begin{textblock*}{60mm}(65mm, 10mm)
+        \begin{beamerboxesrounded}{adjoint equation}
+            \begin{align*}
+                 \dot{\lambda}(t) &= -\mathcal{H}_x(X(t),u(t),\lambda(t))^\top, 
+                 \\
+                 \quad \lambda(T) &=0.
+            \end{align*}
+        \end{beamerboxesrounded}
+    \end{textblock*}
+%
+%
+%
+%
+    \begin{textblock*}{120mm}(5mm, 40mm)
+        \begin{theorem} 
+            Let $\lambda:[0,T]\to \R^n$  be a continuous function 
+            and let $(u^\ast,X^\ast)$ be an admissible pair such that 
+            \begin{enumerate}[\rm (i)]
+                \item 
+                    $u^\ast$ is piecewise continuous,
+                \item 
+                    $\dot{X}^\ast$ exists and is piecewise continuous,
+                \item 
+                    $(\lambda,u^\ast,X^\ast)$ satisfies the optimality 
+                    condition, and,
+                \item 
+                    except at the points of discontinuity of $u^\ast$, the 
+                    adjoint equation holds.
+            \end{enumerate}
+            If, for each $t$, the function $\mathcal{H}^\ast(\cdot,\lambda(t))$ 
+            is convex on $\mathbf{X}$, then $(u^\ast,X^\ast)$ is an optimal
+            pair.
+        \end{theorem}
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}{Example HIV }
+    \begin{textblock*}{120mm}(1mm, 11mm)
+        Consider the uncontrolled HIV model  reported in 
+        (Butler 1997)
+        \begin{align*}
+            \dfrac{dT}{dt} &= \dfrac{s}{1 + V} - \mu_{1}T + rT \left( 1 - %
+                                \dfrac{T + T_{i}}{T_{max}} \right) 
+                                - 
+                                \only<3->{
+                                    \textcolor{cyan}{u(t)}
+                                }
+                                k_{1} V T 
+            \\
+            \dfrac{dT_{i}}{dt} &= 
+                \only<3->{
+                    \textcolor{cyan}{u(t)}
+                }
+                k_{1}VT - \mu_{2}T_{i} 
+                \only<4->{
+                    \tag{$\star$}
+                }
+            \\
+            \dfrac{dV}{dt} &= N \mu_2 T_{i} - \mu_{3}V
+        \end{align*}
+    \end{textblock*}
+    \begin{textblock*}{90mm}(5mm, 67mm) 
+        \only<1>{
+        \begin{bibunit}[apalike]
+            \nocite{butler1997optimal}
+            \putbib
+        \end{bibunit}
+        }
+        \only<2->{
+            If $u(t)$ describes a treatment which modifies the $T$-cells,
+        }    
+        \only<4->{
+            then the problem reads
+            $$
+                \max_{u} 
+                \int_{t_i}^{t_f} {
+                    \left[ AT(t) - 
+                     (1 - u(t))^{2} \right]
+                     } dt, 
+            $$
+            subject to ($\star$).
+        }
+    \end{textblock*}
+    \only<5>{
+    \begin{textblock*}{68mm}(55mm, 35mm)
+        \begin{beamerboxesrounded}{
+        $
+            H(t,x,u,\lambda) 
+            = AT - (1 - u)^{2} + \left<\lambda, f \right> 
+        $, \qquad
+        $\dot{\lambda}(t) = -\mathcal{H}_x(X(t),u(t),\lambda(t))^\top$,
+        $\lambda(T)=0$
+        }
+            \begin{align*}
+                \dot{\lambda}_{T}   
+                    &=  - A + \lambda_{T} \left[\mu_1 
+                    - r\left(1 - \dfrac{T_i}{T_{max}}\right) \right] - 
+                    \lambda_{T_i} u k V
+                    \\ 
+                \dot{\lambda}_{T_i} &=  \lambda_{T}\dfrac{rT}{T_{max}} + 
+                    \lambda_{T_i}\mu_2 - \lambda_{V}N\mu_2
+                    \\
+                \dot{\lambda}_{V}   &=  \lambda_{T} \left(\dfrac{s}{(1+V)^2} + 
+                    u k T\right) - \lambda_{T_i}ukT + \lambda_{V}\mu_{3}
+            \end{align*}
+        \end{beamerboxesrounded}
+    \end{textblock*}
+    }
+\end{frame}
